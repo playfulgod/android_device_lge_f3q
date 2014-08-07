@@ -5,7 +5,7 @@
 /dev/block/platform/msm_sdcc.1/by-name/system	/system         ext4    ro,barrier=1                                                    wait
 
 ## External SD
-/dev/block/platform/msm_sdcc.2/by-num/p1    /external_sd            vfat    defaults    recoveryonly
+/dev/block/platform/msm_sdcc.2/by-num/p1    /external_sd        vfat    defaults    recoveryonly
 
 ## USB Storage
-/devices/platform/msm_hsusb_host/usb        /storage/usbdisk0       auto    defaults    voldmanaged=sda:auto
+/devices/platform/msm_hsusb_host/usb        /storage/usbdisk0   auto    defaults    voldmanaged=sda:auto
