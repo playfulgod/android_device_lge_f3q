@@ -12,9 +12,10 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+# Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    $(LOCAL_PATH)/fstab.qcom:root/fstab.qcom
+    $(LOCAL_PATH)/fstab.qcom:recovery/root/fstab.qcom
 
 $(call inherit-product, build/target/product/full.mk)
 
