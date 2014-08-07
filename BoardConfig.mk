@@ -14,7 +14,24 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_BOOTLOADER_BOARD_NAME := f3q
 
-BOARD_KERNEL_CMDLINE  := androidboot.hardware=fx3q user_debug=31 vmalloc=308M androidboot.selinux=permissive zcache
+# Linaro Optimization
+TARGET_USE_O3 := true
+TARGET_USE_GRAPHITE := true
+TARGET_USE_LINARO_STRING_ROUTINES := true
+
+# Krait optimizations
+TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
+TARGET_USE_KRAIT_PLD_SET := true
+TARGET_KRAIT_BIONIC_PLDOFFS := 10
+TARGET_KRAIT_BIONIC_PLDTHRESH := 10
+TARGET_KRAIT_BIONIC_BBTHRESH := 64
+TARGET_KRAIT_BIONIC_PLDSIZE := 64
+
+# Flags
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+
+BOARD_KERNEL_CMDLINE  := androidboot.hardware=fx3q user_debug=31 vmalloc=308M androidboot.selinux=permissive
 BOARD_KERNEL_BASE     := 0x80200000
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000 --tags_offset 0x80200100
 BOARD_KERNEL_PAGESIZE := 2048
@@ -35,6 +52,5 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-HAVE_SELINUX := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_RECOVERY_SWIPE := true

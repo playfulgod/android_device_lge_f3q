@@ -15,7 +15,7 @@ endif
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    $(LOCAL_PATH)/fstab.qcom:recovery/root/fstab.qcom
+    $(LOCAL_PATH)/fstab.f3q:recovery/root/fstab.f3q
 
 $(call inherit-product, build/target/product/full.mk)
 
