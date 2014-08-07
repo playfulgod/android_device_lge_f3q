@@ -1,44 +1,28 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/lge/f3q/BoardConfigVendor.mk
+-include vendor/lge/fx3q/BoardConfigVendor.mk
 
 TARGET_ARCH := arm
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := msm8960
-TARGET_CPU_VARIANT := cortex-a7
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_VARIANT := krait
+TARGET_CPU_SMP := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-TARGET_BOOTLOADER_BOARD_NAME := f3q
+TARGET_BOOTLOADER_BOARD_NAME := fx3q
 
-# Linaro Optimization
-TARGET_USE_O3 := true
-TARGET_USE_GRAPHITE := true
-TARGET_USE_LINARO_STRING_ROUTINES := true
-
-# Krait optimizations
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-TARGET_USE_KRAIT_PLD_SET := true
-TARGET_KRAIT_BIONIC_PLDOFFS := 10
-TARGET_KRAIT_BIONIC_PLDTHRESH := 10
-TARGET_KRAIT_BIONIC_BBTHRESH := 64
-TARGET_KRAIT_BIONIC_PLDSIZE := 64
-
-# Flags
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-
-BOARD_KERNEL_CMDLINE  := androidboot.hardware=fx3q user_debug=31 vmalloc=308M androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE  := androidboot.hardware=fx3q user_debug=31 vmalloc=308M
 BOARD_KERNEL_BASE     := 0x80200000
-BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000 --tags_offset 0x80200100
+BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-#TARGET_KERNEL_SOURCE := kernel/lge/f3q
-#TARGET_KERNEL_CONFIG := f3q_mpcs_us_defconfig
-TARGET_PREBUILT_KERNEL := device/lge/f3q/kernel
+#TARGET_KERNEL_SOURCE := kernel/lge/fx3q
+#TARGET_KERNEL_CONFIG := fx3q_mpcs_us_defconfig
+TARGET_PREBUILT_KERNEL := device/lge/fx3q/kernel
 
 # Partition Info
 BOARD_BOOTIMAGE_PARTITION_SIZE := 23068672
@@ -51,6 +35,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_USERIMAGES_USE_EXT4 := true
+ENABLE_LOKI_RECOVERY := true
 BOARD_RECOVERY_SWIPE := true
